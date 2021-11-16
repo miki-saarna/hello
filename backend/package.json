@@ -1,0 +1,17 @@
+{
+  "name": "theaters-movies-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "cd ./Theaters-Movies-backend && npm install",
+    "install": "cd ./Theaters-Movies-frontend && npm install",
+    "start": "npx concurrently 'npm run start:Theaters-Movies-backend' 'npm run start:Theaters-Movies-frontend'",
+    "start:Theaters-Movies-backend": "npm --prefix ./Theaters-Movies-backend start",
+    "start:Theaters-Movies-frontend": "npm --prefix ./Theaters-Movies-frontend start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
