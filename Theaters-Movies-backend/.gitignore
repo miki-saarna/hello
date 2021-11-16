@@ -25,6 +25,7 @@ build/
 .qualified-attach.json
 docs/
 .attachignore
+Procfile
 
 npm-debug.log*
 yarn-debug.log*
