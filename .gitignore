@@ -1,2 +1,5 @@
 # most ignored files are located within the gitignore file located within the backend and frontend directories, respectively
 .DS_Store
+
+# only for heroku deployment
+./backend
