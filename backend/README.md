@@ -1,5 +1,5 @@
 
-# Theaters Movie Selection Full-stack
+# Theater Movie Selection Backend Server
 
 ### Table of Contents
 
@@ -7,7 +7,7 @@
 - [Description](#description)
 - [Technologies](#technologies)
 - [How To Use](#how-to-use)
-- [Application Features](#application-features-(backend))
+- [Application Features](#application-features)
 - [License](#license)
 - [Author Info](#author-info)
 
@@ -19,7 +19,7 @@ This application can be viewed here: N/A
 
 This application runs as a website where you can view movie selections at select theater locations. Each movie contains a descriptions as well as reviews from various critics. Reviews can be edited and even deleted as needed.
 
-![Homepage of the Theaters and Movies Selection Website](./Theaters-Movies-backend/src/images/home-page.png)
+![Homepage of the Theaters and Movies Selection Website](./src/images/home-page.png)
 
 ## Technologies
 
@@ -28,22 +28,16 @@ This application runs as a website where you can view movie selections at select
 - Using Express for middleware request and response handling
 - Implementing PostgreSQL servers
 - Using Knex.js to configure migrations
-- Backend error tracing with morgan package (commented out in place of pinoHttp)
-- Backend error tracing with pinoHttp package
-- Frontend built on React with React router
 
 ## How To Use
 
 #### Installation:
 
 1. Fork and clone this repository
-2. `cd` into the newly created directory
-3. Run `npm install` to install project dependencies
-4. Run `npm start` to start your server
+2. Run `npm install` to install project dependencies
+3. Run `npm start` to start your server
 
-Running `npm start` will run both the backend and the client.
-
-## Application Features (backend)
+## Application Features
 
 ### Homepage
 
@@ -68,6 +62,8 @@ The user has the ability to delete or "destroy" reviews if desired.
 ### Rate Reviews
 
 The user has the ability to rate reviews itself, which can bring the average review rating of the movie up or down.
+
+![Study page of the flashcard app](/images/study-page.png)
 
 ## License
 
@@ -100,4 +96,4 @@ SOFTWARE.
 - LinkedIn: [Mikito Saarna](https://www.linkedin.com/in/mikito-saarna/)
 - Website: [MikiSaarna.com](https://MikiSaarna.com)
 
-[Back To The Top](#theaters-movie-selection-full-stack)
+[Back To The Top](#theater-movie-selection-backend-server)

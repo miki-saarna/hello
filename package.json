@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "cd ./Theaters-Movies-backend && npm install",
-    "install": "cd ./Theaters-Movies-frontend && npm install",
+    "preinstall": "cd ./backend && npm install",
+    "install": "cd ./frontend && npm install",
     "start": "npx concurrently 'npm run start:Theaters-Movies-backend' 'npm run start:Theaters-Movies-frontend'",
-    "start:Theaters-Movies-backend": "npm --prefix ./Theaters-Movies-backend start",
-    "start:Theaters-Movies-frontend": "npm --prefix ./Theaters-Movies-frontend start"
+    "start:Theaters-Movies-backend": "npm --prefix ./backend start",
+    "start:Theaters-Movies-frontend": "npm --prefix ./frontend start"
   },
   "keywords": [],
   "author": "",
