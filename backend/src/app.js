@@ -18,7 +18,7 @@ const app = express();
 // app.use(morgan("dev"));
 app.use(logger);
 app.use(cors());
-// needed to read body from req.body...
+// needed to read body from req.body
 app.use(express.json());
 
 // routes
