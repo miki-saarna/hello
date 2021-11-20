@@ -1,6 +1,6 @@
 if (process.env.USER) require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 // const morgan = require("morgan");
 const logger = require("./config/logger")
 
@@ -17,7 +17,7 @@ const app = express();
 
 // app.use(morgan("dev"));
 app.use(logger);
-app.use(cors());
+// app.use(cors());
 // needed to read body from req.body
 app.use(express.json());
 
