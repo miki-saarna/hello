@@ -13,11 +13,11 @@
 
 ## Live Application
 
-This application can be viewed here: [https://movies-theaters-selection-application.vercel.app](https://movies-theaters-selection-application.vercel.app/)
+This application can be viewed here: [https://movies-theaters-selection-application.vercel.app](https://movies-theaters-selection-application.vercel.app)
 
 The backend API is currently running here: [movies-theaters-selection-application-server.vercel.app](movies-theaters-selection-application-server.vercel.app)
 
-Both the client and server are hosted on [Vercel](https://vercel.com/) with the SQL Database hosted by [ElephantSQL](https://www.elephantsql.com/)
+Both the client and server are hosted on [Vercel](https://vercel.com/) with the SQL Database hosted by [ElephantSQL](https://www.elephantsql.com)
 
 ## Description
 
