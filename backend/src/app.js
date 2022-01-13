@@ -17,8 +17,17 @@ const app = express();
 
 // app.use(morgan("dev"));
 app.use(logger);
+
 app.use(cors());
-// needed to read body from req.body...
+// CORS API access approval to requesting domain below
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://movies-theaters-selection-application.vercel.app");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+
+// needed to read body from req.body
 app.use(express.json());
 
 // routes
