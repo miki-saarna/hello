@@ -21,7 +21,8 @@ app.use(logger);
 app.use(cors());
 // CORS API access approval to requesting domain below
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://movies-theaters-selection-application.vercel.app");
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    // res.header("Access-Control-Allow-Origin", "https://movies-theaters-selection-application.vercel.app");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });

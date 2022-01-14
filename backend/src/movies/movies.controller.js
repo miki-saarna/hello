@@ -16,18 +16,18 @@ async function checkIfValid(req, res, next) {
 
 
 async function list(req, res) {
-    const data = await service.list();
     const { is_showing } = req.query;
     
+    const data = await service.list();
+
     if(is_showing) {
         const listOfMoviesShowing = await service.listMoviesShowing();
-        const moviesShowing = data.filter(movie => 
-            // using map function to consolidate only the values of each key into an array so that includes method can be applied easily
-            listOfMoviesShowing.map(movie => movie.movie_id).includes(movie.movie_id)
-            )
-        res.json({
-            data: moviesShowing
+        const set = new Set();
+        listOfMoviesShowing.forEach(({ movie_id }) => set.add(movie_id));
+        const moviesShowing = data.filter(movie => {
+            return set.has(movie.movie_id);
         })
+        res.json({ data: moviesShowing })
     } else {
         res.json({
             data,
