@@ -3,7 +3,7 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 async function checkIfValid(req, res, next) {
     const movieId = Number(req.params.movieId);
-    const data = await service.findMovie(movieId);
+    const data = await service(req.app.get('db')).findMovie(movieId);
     
     if(data.length) {
         res.locals.movieId = movieId
@@ -14,14 +14,13 @@ async function checkIfValid(req, res, next) {
     }
 }
 
-
 async function list(req, res) {
     const { is_showing } = req.query;
     
-    const data = await service.list();
+    const data = await service(req.app.get('db')).list();
 
     if(is_showing) {
-        const listOfMoviesShowing = await service.listMoviesShowing();
+        const listOfMoviesShowing = await service(req.app.get('db')).listMoviesShowing();
         const set = new Set();
         listOfMoviesShowing.forEach(({ movie_id }) => set.add(movie_id));
         const moviesShowing = data.filter(movie => {
@@ -43,13 +42,13 @@ async function findMovie(req, res) {
 
 async function findTheatersShowingMovie(req, res) {
     const movieId = res.locals.movieId;
-    const data = await service.findTheatersShowingMovie(movieId);
+    const data = await service(req.app.get('db')).findTheatersShowingMovie(movieId);
     res.json({ data })
 }
 
 async function findReviewsForMovie(req, res) {
     const movieId = res.locals.movieId;
-    const data = await service.findReviewsForMovie(movieId);
+    const data = await service(req.app.get('db')).findReviewsForMovie(movieId);
     res.json({ data })
 }
 
