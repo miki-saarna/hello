@@ -25,7 +25,7 @@ function hasOnlyValidProperties(req, res, next) {
 
 async function reviewExists(req, res, next) {
     const reviewId = Number(req.params.reviewId);
-    const review = await service.read(reviewId);
+    const review = await service(req.app.get('db')).read(reviewId);
     if(review) {
         res.locals.review = review;
         res.locals.reviewId = reviewId;
@@ -37,7 +37,7 @@ async function reviewExists(req, res, next) {
 
 async function destroy(req, res) {
     const { reviewId } = res.locals;
-    await service.delete(reviewId)
+    await service(req.app.get('db')).delete(reviewId)
     res.sendStatus(204);
 }
 
@@ -47,7 +47,7 @@ async function update(req, res) {
         review_id: res.locals.reviewId,
     }
 
-    const update = await service.update(updatedReview);
+    const update = await service(req.app.get('db')).update(updatedReview);
     console.log(update)
     res.json({ data: update })
 }

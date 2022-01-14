@@ -11,4 +11,8 @@ knex.migrate
     console.log("migrations", migrations);
     app.listen(BACKEND_PORT, listener);
   })
-  .catch(console.error);
+  .catch((error) => {
+    console.error(error);
+    knex.destroy();
+  });
+

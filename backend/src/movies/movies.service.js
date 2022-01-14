@@ -1,26 +1,26 @@
-const knex = require("../db/connection");
+module.exports = db => {
 
 async function list() {
-    return knex("movies").select("*");
+    return db("movies").select("*");
 }
 
 async function listMoviesShowing() {
-    return knex("movies_theaters").select("movie_id").where({ is_showing: true });
+    return db("movies_theaters").select("movie_id").where({ is_showing: true });
 }
 
 async function findMovie(movieId) {
-    return knex("movies").select("*").where({ movie_id: movieId })
+    return db("movies").select("*").where({ movie_id: movieId })
 }
 
 async function findTheatersShowingMovie(movieId) {
-    return knex("movies_theaters as mt")
+    return db("movies_theaters as mt")
         .join("theaters as t", "mt.theater_id", "t.theater_id")
         .select("mt.*", "t.*")
         .where({ movie_id: movieId})
 }
 
 async function findCritic(critic_id) {
-    return knex("critics")
+    return db("critics")
         .select("*")
         .where({ critic_id })
         .then(review => review[0])
@@ -32,16 +32,18 @@ async function addCriticToReview(review) {
 }
 
 async function findReviewsForMovie(movie_id) {
-    return knex("reviews")
+    return db("reviews")
         .select("*")
         .where({ movie_id })
         .then(reviews => Promise.all(reviews.map(review => addCriticToReview(review))))
 }
 
-module.exports = {
+return {
     list,
     listMoviesShowing,
     findMovie,
     findTheatersShowingMovie,
     findReviewsForMovie,
+}
+
 }

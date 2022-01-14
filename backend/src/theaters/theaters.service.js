@@ -1,7 +1,7 @@
-const knex = require("../db/connection");
+module.exports = db => {
 
 async function moviesInfo(theater_id) {
-    return knex("movies_theaters as mt")
+    return db("movies_theaters as mt")
         .join("movies as m", "mt.movie_id", "m.movie_id")
         .select("mt.*", "m.*")
         .where({ theater_id })
@@ -13,11 +13,12 @@ async function includeMoviesAtTheater(theater) {
 }
 
 async function list() {
-    return knex("theaters")
+    return db("theaters")
         .select("*")
         .then(theaters => Promise.all(theaters.map(theater => includeMoviesAtTheater(theater))))
     }
 
-module.exports = {
+return {
     list,
+}
 }
