@@ -4,8 +4,23 @@ async function list() {
     return db("movies").select("*");
 }
 
-async function listMoviesShowing() {
-    return db("movies_theaters").select("movie_id").where({ is_showing: true });
+async function listMoviesShowing(queryParam) {
+    let movieIds;
+    if (queryParam === 'true') {
+        movieIds = await db("movies_theaters").select("movie_id").where({ is_showing: true });
+    } else {
+        movieIds = await db("movies_theaters").select("movie_id").where({ is_showing: false });
+    }
+    const set = new Set();
+    movieIds.forEach((value) => {
+        set.add(value.movie_id);
+    })
+    const movies = [];
+    for (const movieId of set.values()) {
+        const movie = await db("movies").select("*").where({ movie_id: movieId }).then((movieFound) => movieFound[0]);
+        movies.push(movie);
+    }
+    return movies;
 }
 
 async function findMovie(movieId) {

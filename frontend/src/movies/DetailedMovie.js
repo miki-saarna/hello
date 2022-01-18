@@ -20,9 +20,9 @@ function DetailedMovie({ movie }) {
           <strong>Runtime:</strong> {movie.runtime} minutes
         </p>
         <p>
-          <strong>Rating:</strong> {movie.rating}
+          {/* <strong>Rating:</strong> {movie.rating} */}
         </p>
-        <AverageRating reviews={movie.reviews} />
+        {/* <AverageRating reviews={movie.reviews} /> */}
         <Link to={`/movies/${movie.movie_id}`} className="btn btn-primary">
           See More
         </Link>
