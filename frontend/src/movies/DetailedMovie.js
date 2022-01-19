@@ -17,12 +17,12 @@ function DetailedMovie({ movie }) {
         <h3 className="font-poppins-heading mb-4">{movie.title}</h3>
         <p>{movie.description}</p>
         <p>
-          <strong>Runtime:</strong> {movie.runtime} minutes
+          <strong>Runtime:</strong> {movie.runtime_in_minutes} minutes
         </p>
         <p>
-          {/* <strong>Rating:</strong> {movie.rating} */}
+          <strong>Rating:</strong> {movie.rating}
         </p>
-        {/* <AverageRating reviews={movie.reviews} /> */}
+        <AverageRating reviews={movie.reviews} />
         <Link to={`/movies/${movie.movie_id}`} className="btn btn-primary">
           See More
         </Link>

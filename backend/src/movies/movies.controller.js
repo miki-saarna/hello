@@ -31,7 +31,6 @@ async function list(req, res) {
         res.json({ data: listOfMoviesShowing})
     } else {
         const data = await service(req.app.get('db')).list();
-        console.log(data[0])
         res.json({ data });
     }
 }
