@@ -4,14 +4,15 @@ import ErrorAlert from "../shared/ErrorAlert";
 import { listMovies } from "../utils/api";
 
 function MoviesList() {
+
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setError(null);
-    const abortController = new AbortController();
-    listMovies(abortController.signal).then(setMovies).catch(setError);
-
+      setError(null);
+      const abortController = new AbortController();
+      listMovies(abortController.signal).then(setMovies).catch(setError);
+    
     return () => abortController.abort();
   }, []);
 

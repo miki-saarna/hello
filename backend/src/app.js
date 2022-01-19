@@ -20,7 +20,7 @@ app.set('db', knex);
 // app.set('db', knex(config));
 
 // app.use(morgan("dev"));
-app.use(logger);
+// app.use(logger);
 
 app.use(cors());
 // CORS API access approval to requesting domain below

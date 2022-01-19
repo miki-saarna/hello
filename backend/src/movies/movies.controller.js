@@ -15,22 +15,23 @@ async function checkIfValid(req, res, next) {
 }
 
 async function list(req, res) {
-    const { is_showing } = req.query;
-    
-    const data = await service(req.app.get('db')).list();
+    const  { is_showing }  = req.query;
+    // if(is_showing) {
+    //     const listOfMoviesShowing = await service(req.app.get('db')).listMoviesShowing();
+    //     const set = new Set();
+    //     listOfMoviesShowing.forEach(({ movie_id }) => set.add(movie_id));
+    //     const moviesShowing = data.filter(movie => {
+    //         return set.has(movie.movie_id);
+    //     })
+    //     res.json({ data: moviesShowing })
+    // } else {
 
-    if(is_showing) {
-        const listOfMoviesShowing = await service(req.app.get('db')).listMoviesShowing();
-        const set = new Set();
-        listOfMoviesShowing.forEach(({ movie_id }) => set.add(movie_id));
-        const moviesShowing = data.filter(movie => {
-            return set.has(movie.movie_id);
-        })
-        res.json({ data: moviesShowing })
+    if (is_showing) {
+        const listOfMoviesShowing = await service(req.app.get('db')).listMoviesShowing(is_showing);
+        res.json({ data: listOfMoviesShowing})
     } else {
-        res.json({
-            data,
-        });
+        const data = await service(req.app.get('db')).list();
+        res.json({ data });
     }
 }
 

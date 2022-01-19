@@ -66,12 +66,21 @@ function populateTheaters(signal) {
  * @returns {Promise<[movie]>}
  *  a promise that resolves to a possibly empty array of movies saved in the database.
  */
-export async function listMovies(signal) {
-  const url = new URL(`${API_BASE_URL}/movies?is_showing=true`);
-  const addReviews = populateReviews(signal);
-  return await fetchJson(url, { headers, signal }, []).then((movies) =>
-    Promise.all(movies.map(addReviews))
-  );
+export async function listMovies(signal, queryParam) {
+  let url;
+  if (queryParam === 'true') {
+    url = new URL(`${API_BASE_URL}/movies?is_showing=true`);
+  } else if (queryParam === 'false') {
+    url = new URL(`${API_BASE_URL}/movies?is_showing=false`);
+  } else {
+    url = new URL(`${API_BASE_URL}/movies`);
+  }
+  // modify
+  // const addReviews = populateReviews(signal);
+  return await fetchJson(url, { headers, signal }, [])
+  // .then((movies) =>
+  //   Promise.all(movies.map(addReviews))
+  // );
 }
 
 /**
