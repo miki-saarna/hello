@@ -1,5 +1,5 @@
 
-# Theaters Movie Selection Full-stack
+# Theaters Movies Selection Full-stack
 
 ### Table of Contents
 
