@@ -23,8 +23,6 @@ Both the client and server are hosted on [Vercel](https://vercel.com/) with the 
 
 This application runs as a website where you can view movie selections at select theater locations. Each movie contains a descriptions as well as reviews from various critics. Reviews can be edited and even deleted as needed.
 
-![Homepage of the Theaters and Movies Selection Website](./Theaters-Movies-backend/src/images/home-page.png)
-
 ## Technologies
 
 - Backend API setup
