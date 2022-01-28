@@ -45,7 +45,9 @@ This application runs as a website where you can view movie selections at select
 
 Running `npm start` will run both the backend and the client.
 
-## Application Features (backend)
+## Application Features
+
+![The homepage of the application](./images/home-page.png)
 
 ### Homepage
 
